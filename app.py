@@ -86,7 +86,7 @@ st.sidebar.markdown(
 )
 
 # ⚠️ 注意：请将下面的链接替换为你真实的 Gumroad 商品链接！
-gumroad_url = "https://your-username.gumroad.com/l/your-product" 
+gumroad_url = "https://green-ammonia-valuation-g8ge9raagptcyxdttvpnqn.streamlit.app/" 
 st.sidebar.link_button("Buy on Gumroad ($99)", gumroad_url, type="primary")
 
 # --- 底部信任背书 ---
@@ -98,3 +98,4 @@ st.markdown(
     "</div>", 
     unsafe_allow_html=True
 )
+
