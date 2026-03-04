@@ -65,4 +65,32 @@ if st.sidebar.button("🚀 Run Monte Carlo Simulation", type="primary"):
             **Analysis:** A later optimal year suggests that the value of waiting (due to expected CAPEX reductions) outweighs the immediate cash flows.
             """)
 else:
+
     st.info("👈 Please adjust the parameters on the left and click 'Run' to generate the valuation model.")
+# --- 增加导出功能 ---
+st.sidebar.markdown("---")
+st.sidebar.subheader("📥 Export Results")
+# 将分布结果转为 CSV 格式提供下载
+if 'opt_timing_prob' in locals():
+    csv_data = opt_timing_prob.reset_index()
+    csv_data.columns = ['Investment Year', 'Probability']
+    csv = csv_data.to_csv(index=False).encode('utf-8')
+    
+    st.sidebar.download_button(
+        label="Download Probability Distribution (CSV)",
+        data=csv,
+        file_name='green_ammonia_lsm_results.csv',
+        mime='text/csv',
+    )
+else:
+    st.sidebar.button("Download Probability Distribution (CSV)", disabled=True)
+
+# --- 增加权威信任背书 ---
+st.markdown("---")
+st.markdown(
+    "<div style='text-align: center; color: gray; font-size: 0.8em;'>"
+    "Developed by Quantitative Researcher @ University of Warwick <br>"
+    "<em>For bespoke financial modeling or consulting, please connect on LinkedIn.</em>"
+    "</div>", 
+    unsafe_allow_html=True
+)
